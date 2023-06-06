@@ -4,7 +4,7 @@
 
 int main (int argc, char *argv[]) {
     srand(time(NULL));
-    int suma, promedio;
+    int suma, promedio, alu=0, p1=0,p2,p3;
     int alumnos[24][4];
 
     for (int i = 1; i <= 23; i++)
@@ -15,9 +15,17 @@ int main (int argc, char *argv[]) {
     //en el rand se pone un rango maximo de ingreso de estudiantes de 300
             alumnos[i][j]=rand()%10;
             suma+=alumnos[i][j];
+        }
+        if (suma>alu)
+        {
+            alu=suma;
+            p1=i;
+        }
+        
+        
         
     }
-    }
+    
     for (int i = 1; i <= 23; i++)
     {
         for (int j = 1; j <= 3; j++)
@@ -26,5 +34,7 @@ int main (int argc, char *argv[]) {
         }
 
     }
+    printf("El alumno con mejor promedio en todo el semestre es el #%d", p1);
+   
     return 0;
 }
